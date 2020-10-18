@@ -12,10 +12,10 @@ let intervalStatus = false;
 function onStartClick() {
   intervalStatus = true;
   startButStatus();
+  bodyColorChange();
 
   intervalId = setInterval(() => {
-    const color = colors[randomIntegerFromInterval(0, colors.length - 1)];
-    bodyColorChange(color);
+    bodyColorChange();
   }, 1000);
 }
 
@@ -25,8 +25,9 @@ function onStopClick() {
   clearInterval(intervalId);
 }
 
-function bodyColorChange(newColor) {
-  refs.body.style.backgroundColor = newColor;
+function bodyColorChange() {
+  refs.body.style.backgroundColor =
+    colors[randomIntegerFromInterval(0, colors.length - 1)];
 }
 
 function startButStatus() {
